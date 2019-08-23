@@ -44,7 +44,7 @@ for ((i=1; i <= $NUM_DOMAINS2TEST; i++)); do
         printf "%-${#heading}s" ""
     fi
 
-    domain_id=`printf "%5s" "($i) "`; echo -n "$domain_id"
+    domain_id=`printf "%5s" "[$i] "`; echo -n "$domain_id"
     domain_heading="   $domain_id"
     results_header="$results_header$domain_heading"
     random_domain=${RANDOM_DOMAINS[$RANDOM % num_random_domains]}; echo $random_domain
