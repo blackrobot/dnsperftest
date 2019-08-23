@@ -25,7 +25,7 @@ PROVIDERS="
 "
 
 # Number of domains to test
-NUM_DOMAINS2TEST=10
+NUM_DOMAINS2TEST=${1:-10}
 
 # Random domains to choose from
 RANDOM_DOMAINS=(
