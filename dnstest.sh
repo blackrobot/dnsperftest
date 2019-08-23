@@ -5,7 +5,7 @@ command -v bc > /dev/null || { echo "bc was not found. Please install bc."; exit
 
 
 # Local DNS resolvers
-NAMESERVERS=`cat /etc/resolv.conf | grep ^nameserver | cut -d " " -f 2 | sed 's/\(.*\)/&#&/'`
+NAMESERVERS=`grep ^nameserver /etc/resolv.conf | cut -d " " -f 2 | sed 's/\(.*\)/&#@&/'`
 
 # Upstream DNS resolvers
 # Non-standard ports may be specified e.g. 127.0.0.1:5353#mydns
@@ -69,7 +69,7 @@ for p in $NAMESERVERS $PROVIDERS; do
 	        ttime=1000
         elif [ "x$ttime" = "x0" ]; then
 	        ttime=1
-	    fi
+        fi
 
         printf "%${#domain_heading}s" "$ttime ms" | tee -a $results_tempfile
         ftime=$((ftime + ttime))
